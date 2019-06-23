@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "AddBook";
+}
+
+<h2>增加书籍</h2>
+
+@using(Html.BeginForm("AddBook","Book",FormMethod.Post))
+{
+
+@Html.Label("BookId","书籍编号")
+@Html.TextBox("BookId")
+<br />
+@Html.Label("AuthorName","作者")
+@Html.TextBox("AuthorName")
+
+@Html.Label("Title","书名")
+@Html.TextBox("Title")
+
+@Html.Label("Price","价格")
+@Html.TextBox("Price")
+<br />
+<input type="submit" value="提交" />
+}

@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Order";
+    
+}
+
+<h2>Order</h2>
+@Html.Label("BookId","书籍编号")
+@Html.TextBox("BookId",ViewData["BookId"])
+<br />
+@Html.Label("Num","数量")
+@Html.TextBox("Num")
+<br />
+@Html.Label("Address","地址")
+@Html.TextBox("Address")
+
+<br />
+<input type="submit" value="提交" />

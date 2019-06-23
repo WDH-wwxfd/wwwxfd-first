@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MvcApplication1.Models.Books>
+{
+   
+}
+
+<h2>书籍列表</h2>
+
+@foreach(var item in Model)
+{
+
+    <tr>
+        <td>
+            @Html.DisplayName(item.BookId.ToString())
+            <br />
+        </td>
+
+        <td>
+            @Html.DisplayName(item.AuthorName)
+            <br />
+        </td>
+
+        <td>
+            @Html.DisplayName(item.Title)
+            <br />
+        </td>
+
+        <td>
+            @Html.DisplayName(item.Price.ToString())
+            <br />
+        </td>
+
+        <td>
+
+            @Html.ActionLink("下单", "Order", "Store", new { id = item.BookId })
+            <br />
+        </td>
+    </tr>
+}
