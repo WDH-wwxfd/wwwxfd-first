@@ -1,0 +1,72 @@
+﻿@model CourseManage.Models.CourseManagements
+@using CourseManage.Models
+@{
+    ViewBag.Title = "Create";
+    var classes = (List<Classes>)ViewBag.Classes;
+    var teachers = (List<Teachers>)ViewBag.Teachers;
+    var course = (List<Course>)ViewBag.Course;
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CourseManagements</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ClassId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClassId)
+            @Html.ValidationMessageFor(model => model.ClassId)
+            <select name ="ClassId" class="">
+                @foreach (var ClassId in classes)
+                { 
+                <option value="@ClassId.Id">@ClassId.Name</option>
+                }
+            </select>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Courseid)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Courseid)
+            @Html.ValidationMessageFor(model => model.Courseid)
+            <select name ="ClassId" class="">
+                @foreach (var CourseId in course)
+                { 
+                    <option value="@CourseId.Id">@CourseId.Name</option>
+                }
+            </select>
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Teacherid)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Teacherid)
+            @Html.ValidationMessageFor(model => model.Teacherid)
+            <select name ="CourseId" class="">
+                @foreach (var TeachersId in teachers)
+                { 
+                <option value="@TeachersId.Id">@TeachersId.Name</option>
+                }
+            </select>
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
